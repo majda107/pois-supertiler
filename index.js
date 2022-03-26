@@ -74,6 +74,7 @@ supertiler({
     },
 
     minPoints: 4,
+    storeClusterExpansionZoom: true,
     radius: 40
 }).then((success) => {
     console.log("SUPERTILER SUCCESS", success);
