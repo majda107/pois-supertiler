@@ -4,6 +4,6 @@
     "geojson-vt": "^3.2.1",
     "lodash.clonedeep": "^4.5.0",
     "supertiler": "^0.0.4",
-    "supertiler-next": "^0.0.8"
+    "supertiler-next": "^0.0.9"
   }
 }

@@ -663,10 +663,10 @@ supercluster@^6.0.1:
   dependencies:
     kdbush "^3.0.0"
 
-supertiler-next@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/supertiler-next/-/supertiler-next-0.0.8.tgz#dca52d9f1c08b911dbfff36c90b628cd0a264bf3"
-  integrity sha512-aveH7kc+KmNK3AQDU6iMVDooeVO6ZYZ2nTBV1krhix/aw8EqSKUhAE35ZyRhqOXATEKHONx8Sj/Etxqz1eFu7w==
+supertiler-next@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/supertiler-next/-/supertiler-next-0.0.9.tgz#e2c48f2ef0e9c53e6c306c70294724567488a60d"
+  integrity sha512-eldxCSekMR3oQCyK1c1Z4t5+PINdv1Zcq7GLt5yewHTmhJ+yl8YU6UWi8KjHbgZuWxOufDZpKUak29WFBVvgXg==
   dependencies:
     esm "^3.1.0"
     node-gzip "^1.1.2"
