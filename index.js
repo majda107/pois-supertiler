@@ -56,44 +56,52 @@ export const tripsGeometryMapper = (cleanFeatures, features, { x, y, z }) => {
     return newFeatures;
 }
 
-function clusterPoiGeojson(poi) {
-    supertiler({
-        // input: 'export_free_trips.json',
-        input: `pois/${poi}.geojson`,
-        output: `pois/${poi}restaurant.mbtiles`,
-        readByLine: true,
+async function clusterPoiGeojson(poi) {
+    try {
+        await supertiler({
+            // input: 'export_free_trips.json',
+            input: `pois/${poi}.geojson`,
+            output: `pois/${poi}restaurant.mbtiles`,
+            readByLine: true,
 
-        maxZoom: 13,
-        logPerformance: true,
-        includeUnclustered: true,
-        layer: 'pois',
-        // inputGeometryFilter: pointsGeometryFilter,
-        // geometryMapper: tripsGeometryMapper,
-        reduce: (acc, props) => {
-            if (acc?.done) return;
+            maxZoom: 13,
+            logPerformance: true,
+            includeUnclustered: true,
+            layer: 'pois',
+            // inputGeometryFilter: pointsGeometryFilter,
+            // geometryMapper: tripsGeometryMapper,
+            reduce: (acc, props) => {
+                if (acc?.done) return;
 
-            acc = { ...props };
-            acc.done = true;
-        },
+                acc = { ...props };
+                acc.done = true;
+            },
 
-        minPoints: 4,
-        storeClusterExpansionZoom: true,
-        radius: 40
-    }).then((success) => {
-        console.log("SUPERTILER SUCCESS", success);
-    }, (err) => {
+            minPoints: 4,
+            storeClusterExpansionZoom: true,
+            radius: 40
+        });
+
+        console.log("SUPERTILER SUCCESS");
+    } catch (err) {
         console.log("SUPERTILER ERROR", err);
-    });
+    }
 }
 
 
-// process multiple files
-console.log(`----- prepairing ${poiGeojsonFiles.length} clusters ------`);
+// process multiple poi files
+async function clusterPois() {
+    const poiGeojsonFiles = ['hotel', 'parking', 'cafe', 'rail', 'supermarket'];
 
-const poiGeojsonFiles = ['hotel', 'parking', 'cafe', 'rail', 'supermarket'];
-for (const poiGeojson of poiGeojsonFiles) {
-    console.log(`----- CLUSTERING ${poiGeojson}.geojson ------`);
-    clusterPoiGeojson(poiGeojson);
+    console.log(`----- prepairing ${poiGeojsonFiles.length} clusters ------`);
+
+    for (const poiGeojson of poiGeojsonFiles) {
+        console.log(`----- CLUSTERING ${poiGeojson}.geojson ------`);
+        await clusterPoiGeojson(poiGeojson);
+    }
+
+    console.log(`----- ${poiGeojsonFiles.length} clusters created successfully ------`);
 }
 
-console.log(`----- ${poiGeojsonFiles.length} clusters created successfully ------`);
+// start pois clustering
+clusterPois();
