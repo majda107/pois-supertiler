@@ -60,6 +60,8 @@ supertiler({
     // input: 'export_free_trips.json',
     input: 'pois/restaurant.geojson',
     output: 'pois/restaurant.mbtiles',
+    readByLine: true,
+
     maxZoom: 13,
     logPerformance: true,
     includeUnclustered: true,
