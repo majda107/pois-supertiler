@@ -61,7 +61,7 @@ async function clusterPoiGeojson(poi) {
         await supertiler({
             // input: 'export_free_trips.json',
             input: `pois/${poi}.geojson`,
-            output: `pois/${poi}restaurant.mbtiles`,
+            output: `pois/${poi}.mbtiles`,
             readByLine: true,
 
             maxZoom: 13,
@@ -91,7 +91,8 @@ async function clusterPoiGeojson(poi) {
 
 // process multiple poi files
 async function clusterPois() {
-    const poiGeojsonFiles = ['restaurant', 'hotel', 'parking', 'cafe', 'rail', 'supermarket'];
+    // const poiGeojsonFiles = ['restaurant', 'hotel', 'parking', 'cafe', 'rail', 'supermarket'];
+    const poiGeojsonFiles = ['zoo'];
 
     console.log(`----- prepairing ${poiGeojsonFiles.length} clusters ------`);
 
