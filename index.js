@@ -91,7 +91,7 @@ async function clusterPoiGeojson(poi) {
 
 // process multiple poi files
 async function clusterPois() {
-    const poiGeojsonFiles = ['hotel', 'parking', 'cafe', 'rail', 'supermarket'];
+    const poiGeojsonFiles = ['restaurant', 'hotel', 'parking', 'cafe', 'rail', 'supermarket'];
 
     console.log(`----- prepairing ${poiGeojsonFiles.length} clusters ------`);
 
