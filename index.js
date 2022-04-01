@@ -62,9 +62,11 @@ async function clusterPoiGeojson(poi) {
             // input: 'export_free_trips.json',
             input: `pois/${poi}.geojson`,
             output: `pois/${poi}.mbtiles`,
-            readByLine: true,
 
-            maxZoom: 13,
+            readByLine: true,
+            gzipSynchronously: true,
+
+            maxZoom: 11,
             logPerformance: true,
             includeUnclustered: true,
             layer: 'pois',
