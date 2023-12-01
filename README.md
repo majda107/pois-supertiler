@@ -31,3 +31,8 @@ v12.22.12
 - https://stackoverflow.com/questions/72553650/how-to-get-node-sqlite3-working-on-mac-m1
 - https://github.com/TryGhost/node-sqlite3/issues/1538
 - https://gist.github.com/LeZuse/bf838718ff2689c5fc035c5a6825a11c
+
+
+# Run clustering process
+- change `const poiGeojsonFiles = ['swimming_pool'];` variable to desired poi geojson files (located in `pois` folder)
+- run `node index.js`
