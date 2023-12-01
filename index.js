@@ -73,7 +73,8 @@ async function clusterPoiGeojson(poi) {
             // inputGeometryFilter: pointsGeometryFilter,
             // geometryMapper: tripsGeometryMapper,
             reduce: (acc, props) => {
-                if (acc?.done) return;
+                //if (acc?.done) return;
+                if (acc != undefined && acc.done == true) return;
 
                 acc = { ...props };
                 acc.done = true;
@@ -93,8 +94,33 @@ async function clusterPoiGeojson(poi) {
 
 // process multiple poi files
 async function clusterPois() {
-    // const poiGeojsonFiles = ['restaurant', 'hotel', 'parking', 'cafe', 'rail', 'supermarket'];
-    const poiGeojsonFiles = ['atm'];
+    // OLD
+    //const poiGeojsonFiles = ['restaurant', 'hotel', 'parking', 'cafe', 'rail', 'supermarket'];
+
+
+
+
+    //const poiGeojsonFiles = ['atm'];
+    //const poiGeojsonFiles = ['alpine_hut', 'atm', 'attraction', 'bar', 'beach_resort', 'bicycle_rental', 'bicycle_repair_station', 'bus_stations'];
+    //const poiGeojsonFiles = ['cable_car', 'cafe', 'camp_site', 'caravan_site', 'castle', 'cave_entrance', 'church'];
+    //const poiGeojsonFiles = ['drinking_water', 'fast_food', 'ferry_terminal', 'fuel'];
+    //const poiGeojsonFiles = ['hospital', 'hotel', 'museum'];
+
+    //const poiGeojsonFiles = ['parking'];
+
+    //const poiGeojsonFiles = ['peak', 'pharmacy'];
+    //const poiGeojsonFiles = ['picnic_site', 'playground', 'police', 'pubs'];
+    //const poiGeojsonFiles = ['rail', 'restaurant'];
+    //const poiGeojsonFiles = ['ruins', 'spring'];
+
+    //const poiGeojsonFiles = ['supermarket'];
+    const poiGeojsonFiles = ['swimming_pool'];
+
+    //const poiGeojsonFiles = ['toilets'];
+    //const poiGeojsonFiles = ['viewpoint'];
+    //const poiGeojsonFiles = ['waterfall'];
+    //const poiGeojsonFiles = ['wilderness_hut'];
+    //const poiGeojsonFiles = ['zoo'];
 
     console.log(`----- prepairing ${poiGeojsonFiles.length} clusters ------`);
 
